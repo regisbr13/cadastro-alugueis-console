@@ -14,5 +14,10 @@ namespace AlugueisConsole
             this.Email = email;
             this.Numero = numero;
         }
+
+        public override string ToString()
+        {
+            return Numero + ": " + Hospede + ", " + Email;
+        }
     }
 }

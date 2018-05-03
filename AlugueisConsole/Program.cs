@@ -4,6 +4,7 @@ namespace AlugueisConsole
 {
     class Program
     {
+        //Aplicação simples de console para cadastro e listagem de alugueis:
         static void Main(string[] args)
         {
             Console.Write("Qual a quantidade de quartos disponíveis para alugar? ");
@@ -24,7 +25,16 @@ namespace AlugueisConsole
                 Console.Write("Quarto: ");
                 int numeroQuarto = int.Parse(Console.ReadLine());
                 Aluguel aluguel = new Aluguel(hospede, email, numeroQuarto);
-                 alugueis[i - 1] = aluguel;
+                if (!aluguel.QuartoOcupado(numeroQuarto, alugueis))
+                {
+                    alugueis[i - 1] = aluguel;
+
+                }
+                else
+                {
+                    Console.WriteLine("O quarto escolhido encontra-se ocupado!");
+                    i = i - 1;
+                }
             }
 
             Console.WriteLine();
